@@ -11,8 +11,8 @@
     <ImageView
         android:id="@+id/icon_mine"
         android:gravity="center"
-        android:layout_width="30dp"
-        android:layout_height="30dp" />
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
 
     <TextView
         android:id="@+id/name_mine"
@@ -32,7 +32,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_gravity="right"
-        android:paddingRight="10dp"
+        android:paddingRight="5dp"
         android:background="@drawable/aimright"/>
 </LinearLayout>
 

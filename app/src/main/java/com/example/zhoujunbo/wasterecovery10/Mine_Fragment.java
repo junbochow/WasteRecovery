@@ -34,18 +34,27 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation;
 public class Mine_Fragment extends Fragment {
 
     private List<Mine> mine_items=new ArrayList<>();
+    private List<Mine> mine_items2=new ArrayList<>();
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.mine_fragment,container,false);
         if(mine_items.size()==0) initItems();
+        if(mine_items2.size()==0) initItems2();
         RecyclerView recyclerView =  (RecyclerView) view.findViewById(R.id.recycler_mine);
+        RecyclerView recyclerView2 =  (RecyclerView) view.findViewById(R.id.recycler_mine2);
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
+        recyclerView2.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
         LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity());
+        LinearLayoutManager layoutManager2=new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
+        recyclerView2.setLayoutManager(layoutManager2);
         Adapter adapter=new Adapter(mine_items);
+        Adapter adapter2=new Adapter(mine_items2);
         recyclerView.setAdapter(adapter);
+        recyclerView2.setAdapter(adapter2);
         return view;
 
     }
@@ -58,11 +67,15 @@ public class Mine_Fragment extends Fragment {
             mine_items.add(order);
             Mine coins=new Mine("积分管理",R.drawable.mine_coins);
             mine_items.add(coins);
-            Mine setting=new Mine("系统设置",R.drawable.mine_setting);
-            mine_items.add(setting);
-            Mine suggestion=new Mine("举报反馈",R.drawable.mine_suggestion);
-            mine_items.add(suggestion);
-            Mine about=new Mine("关于我们",R.drawable.mine_about);
-            mine_items.add(about);
+
+    }
+    private void initItems2(){
+
+        Mine setting=new Mine("系统设置",R.drawable.mine_setting);
+        mine_items2.add(setting);
+        Mine suggestion=new Mine("举报反馈",R.drawable.mine_suggestion);
+        mine_items2.add(suggestion);
+        Mine about=new Mine("关于我们",R.drawable.mine_about);
+        mine_items2.add(about);
     }
 }
